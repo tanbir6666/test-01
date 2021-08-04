@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+<div class="p2">{{Notification}}</div>
+<div class="p2"><a class="btn" href="log_out/">Log out</a></div>
+<div class="p2"><a class="btn" href="undo/">Undo</a></div>
+<table>
+<tr><th>ID</th><th>Name</th><th>Email</th><th>Password</th><th>Save</th><th>Delete</th></tr>
+
+
+
+{% for tables in table %}
+<tr>
+    <form action="save/{{tables.id}}/" method="post">
+    <td> {{tables.id}} </td>
+    <td><input name="name" type="text" class="non_visual" value="{{tables.names}}"></td>
+    <td><input name="email" type="text" class="non_visual" value="{{tables.emails}}"></td>
+    <td><input name="password" type="text" class="non_visual" value="{{tables.passwords}}"></td>
+    <td><input type="submit" value="Save"></td>
+    </form>
+    <td><a onclick="deletes(this)"  id="{{tables.id}}">Delete</a></td>
+    
+
+</tr>
+<script>
+    
+        
+           function deletes(element){
+
+                let target_ID= element.id
+                if(confirm("Are you sure about deleting id : "+ target_ID + " ?")){
+                    location.replace("delete/" + target_ID + "/")
+                }else{
+                    return false;
+                }
+                
+
+           }
+           document.addEventListener("keypress",function(e){
+                if(e.key=="Z" || e.key=="z"){
+                location.replace("undo/")
+                }
+           })
+      
+</script>
+
+{% endfor %}
+
+</table>
+{% endblock content %}

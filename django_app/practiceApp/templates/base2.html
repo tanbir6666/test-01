@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    * {
+      font-family: montserrat;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      outline: none;
+
+    }
+
+    .header-one {
+      text-align: center;
+      font-weight: 300;
+      margin-top: 1.5rem;
+      text-transform: uppercase;
+      margin: 1.9em;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: auto;
+      width: 86%;
+    }
+    .django_form{
+       max-width: 900px;
+      margin: auto;
+      margin-top:2rem
+    }
+
+    .input {
+      padding: 0.7em 1.6em;
+      border-radius: 50px;
+      background: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.30);
+      width: 450px;
+      font-size: 1.2em;
+    }
+.input:focus{
+box-shadow: 0px 0px 10px rgba(0, 68, 255, 0.3);
+     
+}
+
+    .btn {
+      padding: 0.7em 1.6em;
+      font-size: 1.2rem;
+      color: #fff;
+
+      cursor: pointer;
+      border-radius: 50px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.30);
+    }
+
+    .btn-submit {
+      background-color: #0084ff;
+
+      margin-left: 1.5em;
+    }
+
+    .btn-submit:hover {
+      background-color: #005aad;
+    }
+    .btn_list{
+      background-color:#ff3200;
+      border-radius: 50%;
+      padding:1em 1.5em
+    }
+    .creative_content{
+      max-width: 900px;
+      margin: auto;
+
+    }
+    .list_{
+     list-style: none;
+     margin-top: 1.5em;
+    }
+    .list-item{
+      background:rgb(248, 248, 248);
+      padding: 1.5em 2em;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.30);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    }
+  </style>
+  <h1 class="header-one">Welcome to my pc</h1>
+
+
+  <div class="container">
+    {% block content %}{% endblock content %}
+  </div>
+
+</body>
+
+</html>

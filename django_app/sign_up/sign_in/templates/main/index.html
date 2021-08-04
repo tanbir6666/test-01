@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+<div class="form_back clean_back">
+    <h2 class="header">Sign up</h2>
+    <form action="form_submit/" method="post" class="flex_column p3 form_Area">
+        <input class="form_inputs" type="text" name="name" placeholder="Your Name" value="{{user.name}}">
+        <input class="form_inputs" type="email" name="email" id="" placeholder="example@gamil.com" value="{{user.email}}">
+        <div class="password_box"><input class="form_inputs" type="password" name="password" value="{{user.password}}" id="password_input" placeholder="pass*****"><button id="change_type">View</button></div>
+        <div class="form_description">
+            Please be sure to read out <a href="http://www.google.com">terms & conditions</a>
+            <h4>{{alert}}</h4>
+        </div>
+        <input  type="submit" value="Submit">
+    </form>
+</div>
+
+{% endblock content %}

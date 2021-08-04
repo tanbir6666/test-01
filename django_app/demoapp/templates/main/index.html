@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="header-one">=======================items==========================</h1>
+<form action="add_todo/" method="post" class="django_form">
+    <input name="the_send_text" type="text" name="" id="first" class="input" placeholder="text">
+    <input class="btn btn-submit" type="submit" value="Submit">
+</form>
+
+<form action="new_build/" method="post" class="django_form">
+    <input name="do_it" type="text" name="" id="dawe" class="input" placeholder="text">
+    <input class="btn btn-submit" type="submit" value="Submit">
+</form>
+
+
+<div class="creative_content">
+    <ul class="list_">
+        <li class="list-item">hello <button class="btn btn_list">x</button></li>
+    </ul>
+</div>
+<h1 class="header-one">=======================items===========================</h1>
+{% endblock content %}
+

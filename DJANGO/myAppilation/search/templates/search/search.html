@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<form action="s/" method="POST" role="form">
+    <legend>Form title</legend>
+
+    <div class="form-group">
+        <label for="">label</label>
+        <input name="s" type="text" class="form-control" id="" placeholder="Input field">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div class="row">
+    {% for lin in thumbnail %}
+    <div class="card col-md-4">
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{lin.poster}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                
+                <a href="{{lin.link}}" class="btn btn-primary">{{lin.links_text}}</a>
+            </div>
+        </div>
+        {{lin | safe}}
+    </div>
+    {% endfor %}
+
+    {% endblock content %}
+</div>

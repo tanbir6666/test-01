@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container profile_user">
+<table>
+    <tr><th>Name</th><td>{{name}}</td></tr>
+    <tr><th>Age</th><td>{{age}}</td></tr>
+    <tr><th>Gender</th><td>{{gender}}</td></tr>
+</table>
+</div>  
+<div class="undo_area mb-3 mt-3">
+    <button id="delete_undo" class="btn_submit btn btn-primary">Undo Delete</button>
+</div>
+<div class="undo_area mb-3 mt-3">
+    <button id="logOut" class="btn_submit">Log Out</button>
+</div>
+<div class="massage mb-3 mt-3">
+    <h2 class="display-4">{{massages}}</h2>
+</div>
+<table class="table-bordered table-responsive table-light d-xl-table-cell table-hover">
+    <tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Time</th><th>Save</th><th>Delete</th></tr>
+    {% for entry_each in entry %}
+
+    <tr><form action="save/" method="post">
+        <td class="table-danger">{{entry_each.id}}</td>
+        <td class="table-primary">{{entry_each.names}}</td>
+        <td class="table-warning">{{entry_each.ages}}</td>
+        <td class="table-info">{{entry_each.gender}}</td>
+        <td  class="table-secondary">{{entry_each.entryTime}}</td>
+        <td class="table-success"><button type="submit"  class=" btn-warning">Save</button></td>
+</form>
+        <td><button onClick="deletes(this)" class="btn_submit delete btn-danger" id="{{entry_each.id}}">Delete</button></td>
+       
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+{% endblock content %}

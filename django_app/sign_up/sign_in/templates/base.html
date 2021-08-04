@@ -1,0 +1,68 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        {% block content %}
+
+        {% endblock content %}
+
+    </div>
+
+
+
+
+    <script>
+        function s(className)
+        {
+            return document.querySelector(className)
+        }
+        if (s("#change_type"))
+        {
+            const change_btn = s("#change_type")
+            const pass_input = s("#password_input")
+            let view = false
+            change_btn.addEventListener("click", function (e)
+            {
+                e.preventDefault();
+                if (view === false)
+                {
+                    pass_input.setAttribute("type", "text");
+                    view = true
+                    change_btn.style.background="#0070ff"
+                    change_btn.style.color="#fff"
+                } else
+                {
+                    pass_input.setAttribute("type", "password");
+                    view = false;
+                    change_btn.style.background="#aaa"
+                     change_btn.style.color="#000"
+                }
+
+
+            })
+
+        }
+       
+
+    </script>
+</body>
+
+</html>

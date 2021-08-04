@@ -1,0 +1,19 @@
+{% extends "base of pro.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="header">This is main areas header of  practical project</h2>
+
+    <form action="warning/" method="post">
+    <input type="text" name="Name" id="Name" class="input" placeholder="Name">
+    <input type="number" name="Age" id="Age" class="input" placeholder="Age">
+    <input type="submit" value="Submit" class="btn btn-submit">
+    </form>
+<ul>
+{% for name in names %}
+<li>{{name}}</li>
+{% endfor %}
+</ul>
+</div>
+
+{% endblock content %}

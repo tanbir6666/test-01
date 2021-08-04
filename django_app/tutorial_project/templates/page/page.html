@@ -1,0 +1,90 @@
+{% extends "base of page.html" %}
+
+{% block content %}
+<div class="container">
+    <h2 class="header">This is main areas header of  practical project</h2>
+
+    <div class="container">
+        <form action="searching/" method="post">
+            <input type="text" name="search_text" class="input"  id="" placeholder="Search text Goes here">
+            <input type="submit" value="Search" class="btn btn-submit">
+        </form>
+        {% for a in search_text %}
+        <div class ='links'>{{a.links | safe}}
+            <form action="delete_links/{{a.id}}/" method="post">
+                <input type="submit" value="Delete" class="btn btn-submit btn-delete">
+            </form></div>
+        {% endfor %}
+    </div>
+
+
+    <form action="add_data/" method="post">
+    <input type="text" name="name" id="name" class="input" placeholder="Name">
+    <input type="number" name="age" id="Age" class="input" placeholder="Age">
+    <input type="number" name="roll" id="roll" class="input" placeholder="Roll">
+    <input type="submit" value="Submit" class="btn btn-submit">
+    </form>
+
+
+<table border="1px solid blue">
+<tbody>
+
+<tr><th>Name</th><th>Age</th><th>Roll</th><th>Delete</th></tr>
+
+{% for name in items %}
+<tr>
+<td>  {{name.name}} </td><td>{{name.age}} </td> <td> {{name.roll}}</td><td><form action="delete/{{name.id}}/" method="post"> <input type="submit" value="Delete" class="btn btn-submit btn-delete"> </form> </td></li>
+</tr>
+{% endfor %}
+
+
+</tbody>
+
+</table>
+
+<ul>
+{% for name in items %}
+<li>Name : {{name.name}}  || Roll :{{name.roll}} || Age : {{name.age}}</li>
+
+{% endfor %}
+</ul>
+
+
+    <div class="container">
+        <form action="send/Tanbir/" method="post">
+            <textarea type="text" name="massage" id="" class="input"> </textarea>
+            <input type="submit" value="Send" class="btn btn-submit">
+        </form>
+    </div>
+
+</div>
+
+
+<ul>
+
+    {% for massage in text_massage %}
+     <div>
+    <li>Sender : {{massage.NAME}}
+        <form action="delete_massage/{{massage.id}}/"><input type="submit" value="Delete" class="btn btn-submit btn-delete"></form> </li>
+    <li> Massage : <br> {{massage.MASSAGE}}</li>
+</div>
+    {% endfor %}
+</ul>
+
+
+
+
+
+
+
+<div id="alert_text">
+    {{ alerts }} 
+    </div>
+<script>
+    //alert(document.getElementById("alert_text").innerHTML)
+
+</script>
+
+
+
+{% endblock content %}

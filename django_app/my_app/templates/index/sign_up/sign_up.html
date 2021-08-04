@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            border: 0;
+           
+        }
+
+        .container {
+            max-width: 1366px;
+            width: 86%;
+            margin: auto;
+        }
+
+        .list {
+            list-style: none;
+            
+            margin: 1em 0em;
+             margin-bottom:3rem;
+
+        }
+        table{
+            border-collapse:collapse;
+            margin:1em 2em;
+            margin-top:3rem;
+
+        }
+        th,td{
+            border: 1px solid #ccc;
+            padding:1rem 1em;
+            margin: 0 !important;
+            
+
+            
+        }
+         .btn_submit {
+            padding: 0.7em 2em;
+            background: #00ff80;
+            font-weight: 500;
+            
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.171);
+
+        }
+
+        .btn_submit:hover {
+            background: #ff0000;
+        }
+        .btn_delete{
+            background: #ff3000;
+            color: white;
+        }
+        .header{
+        margin:2rem 0rem
+        }
+        .links{
+        text-decoration: none;
+        color:white;
+        font-weight: 500;
+        background-color:#ff2000;
+        padding:0.8em 3em;
+        font-size:1.2rem;
+        margin:5em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class='list'>
+        {% block content %}
+
+        <li>User Name :{{name}}  </li>
+        <li>email     : {{email}}  </li>
+        <li>password   : {{password}} </li>
+
+ 
+
+    </ul>
+    <h3 class="header">KatmovieHD Links</h3>
+    <a href="katmovie/" class="links">KatmovieHD</a>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Delete</th>
+    </tr>
+
+{% for user_data_ in user_data %}
+<tr>
+    <td>{{user_data_.id}}</td>
+    <td>{{user_data_.name}}</td>
+    <td>{{user_data_.email}}</td>
+    <td>{{user_data_.password}}</td>
+    <td><form action="delete/{{user_data_.id}}/" method="post"><input type="submit" class="btn_submit btn_delete" value="Delete"></form> </td>
+
+
+</tr>
+{% endfor %}
+
+    <a href="logout/" class="btn_delete">Log out</a>
+    <form action="logout/" method="post">
+
+       <button class="btn_delete" type="submit">Log out</button>
+
+    </form>
+
+{% endblock content %}
+
+</table>
+
+
+</body>
+
+</html>
